@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" extends="service_task" label="Rest Test 01 Incident" max_length="40" name="x_164466_rest_test_01_incident" sizeclass="11" type="collection"/>
+</database>

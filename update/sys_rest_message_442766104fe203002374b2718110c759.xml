@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_rest_message">
+    <sys_rest_message action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <authentication_type>basic</authentication_type>
+        <basic_auth_password/>
+        <basic_auth_profile display_value="administrator">e3f7aa144fe203002374b2718110c7e1</basic_auth_profile>
+        <basic_auth_user/>
+        <description/>
+        <name>Networker  10.224.252.58</name>
+        <oauth2_profile/>
+        <protocol_name/>
+        <rest_endpoint>https://10.224.252.58:9090/nwrestapi/v2/</rest_endpoint>
+        <sys_class_name>sys_rest_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-11-16 15:44:16</sys_created_on>
+        <sys_id>442766104fe203002374b2718110c759</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Networker  10.224.252.58</sys_name>
+        <sys_package display_value="Rest Test 01" source="x_164466_rest_test">7d9f30544f2203002374b2718110c739</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Rest Test 01">7d9f30544f2203002374b2718110c739</sys_scope>
+        <sys_update_name>sys_rest_message_442766104fe203002374b2718110c759</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-17 08:22:28</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message>
+</record_update>
