@@ -3,35 +3,56 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>package_private</access>
         <active>true</active>
-        <api_name>x_164466_rest_test.InvokeRest</api_name>
+        <api_name>x_164466_rest_test.NetworkerRest</api_name>
         <client_callable>false</client_callable>
         <description/>
-        <name>InvokeRest</name>
-        <script><![CDATA[var InvokeRest = Class.create();
-InvokeRest.prototype = {
-    initialize: function() {
+        <name>NetworkerRest</name>
+        <script><![CDATA[var NetworkerRest = Class.create();
+NetworkerRest.prototype = {
+    initialize: function(addr, user, pwd) {
+		gs.info('chris - in NetworkerRest.initialize');	
+		try{
+			this.restMessage = new sn_ws.RESTMessageV2();
+			this.restMessage.setBasicAuth(user, pwd);	
+			this.endpoint = 'http://' + addr + ':9090/nwrestapi/v2/';
+			gs.info('chris - NetworkerRest will target ' + this.endpoint);
+		}catch(ex){
+			gs.error(ex.getMessage());
+		}
     },
 	
-	sendRestRequest: function(addr){
-		var now = new GlideDateTime();
-		gs.addErrorMessage('req to ' + addr);
-		gs.info('chris - InvokeRest.sendRestRequest executed at ' + now + ' send to ' + addr);
+	getAllJobs: function(){
+		try{
+			var svc = this.endpoint + 'global/jobs';
+			gs.info('chris - NetworkerRest.getAllJobs using ' + svc);
 
+			this.restMessage.setEndpoint(svc);
+			this.restMessage.setHttpMethod("get");
+			//this.restMessage.setRequestHeader("Accept","Application/json");
+
+			
+			//this.restMessage.setRequestBody('{\"short_description\" : \"Test incident\"}');
+			var resp = this.restMessage.execute();
+			var status = resp.getStatusCode();
+			gs.info('got status ' + status);
+		}catch(ex){
+			gs.error(ex.getMessage());
+		}
 	},
 	
-    type: 'InvokeRest'
+    type: 'NetworkerRest'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-11-16 11:25:28</sys_created_on>
         <sys_id>596ae9184f6203002374b2718110c784</sys_id>
-        <sys_mod_count>5</sys_mod_count>
-        <sys_name>InvokeRest</sys_name>
+        <sys_mod_count>25</sys_mod_count>
+        <sys_name>NetworkerRest</sys_name>
         <sys_package display_value="Rest Test 01" source="x_164466_rest_test">7d9f30544f2203002374b2718110c739</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Rest Test 01">7d9f30544f2203002374b2718110c739</sys_scope>
         <sys_update_name>sys_script_include_596ae9184f6203002374b2718110c784</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-11-17 08:41:09</sys_updated_on>
+        <sys_updated_on>2017-11-17 11:42:50</sys_updated_on>
     </sys_script_include>
 </record_update>
